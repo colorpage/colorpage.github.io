@@ -1,0 +1,106 @@
+/* ref file:///zytmp/gitsrc/sqlalchemyorg/zzzeeksphinx/zzzeeksphinx/themes/zzzeeksphinx/static/docs.scss */
+
+#docs-body #colorpage-project h1 {
+  /* hide the <h1> for each content section. */
+  display:none;
+  font-size:2.0em;
+}
+#colorpage-project h2 {
+  border-top:none;
+  padding-top:0;
+}
+
+
+#docs-container {
+
+    .bscc_explain_frame {
+      font-weight: normal;
+      font-family: helvetica, arial, sans-serif;
+      font-size: 0.9em;
+      /* text-transform: uppercase; */
+      color: #000099;
+      font-style: italic;
+      background-color: #d0d0ff;
+      border: 1px dashed;
+      width: 550px;
+      padding: 1px 2px 1px 2px;
+      margin: 0px 10px 0px 15px;
+      /* float: right; */
+      line-height: 1.2em;
+    }
+
+    .bscc_link {
+      font-weight: normal;
+      font-family: helvetica, arial, sans-serif;
+      font-size: 0.9em;
+      /* text-transform: uppercase; */
+      text-transform: capitalize;
+      color: #c0c0c0;
+      /* font-style: italic; */
+      background-color: #0000c0;
+      border: 1px solid #0000c0;
+      /* width: 550px; */
+      padding: 1px 2px 1px 2px;
+      margin: 0px 10px 0px 15px;
+      /* float: right; */
+      line-height: 1.5em;
+    }
+
+    a.bscc_link, .bscc_link {
+      text-decoration: none;
+      padding: 1px 2px;
+    }
+    
+    a.bscc_link:hover {
+      text-decoration: none;
+      color: #fff;
+      border: 1px solid #ff0000;
+      background-color: #0000ff;
+    }
+
+}
+
+
+
+/* special "index page" sections
+   with specific formatting
+*/
+
+div#colorpage-project {
+  font-size:.95em;
+}
+div#colorpage-project em {
+  font-style:normal;
+}
+div#colorpage-project .rubric{
+  font-size:14px;
+  background-color:#EEFFEF;
+  padding:5px;
+  border:1px solid #BFBFBF;
+}
+div#colorpage-project a, div#colorpage-project li {
+  padding:5px 0px;
+}
+
+
+div#source {
+  border-bottom:1px solid;
+}
+
+div#colorpage-project div#sqlalchemy-orm {
+  float:left;
+  width:48%;
+}
+
+div#colorpage-project div#sqlalchemy-core {
+  float:left;
+  width:48%;
+  margin:0;
+  padding-left:10px;
+  border-left:1px solid;
+}
+
+div#dialect-documentation {
+  border-top:1px solid;
+  /*clear:left;*/
+}

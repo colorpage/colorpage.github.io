@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta content="by BSCC." name="description" />
+
+        <title>
+            
+    
+    C,c
+ &mdash;
+    ColorPage 1.3 Documentation
+
+        </title>
+
+        
+            <!-- begin iterate through site-imported + sphinx environment css_files -->
+                <link rel="stylesheet" href="../../../zzstatic/pygments.css" type="text/css" />
+                <link rel="stylesheet" href="../../../zzstatic/docs.bscc.bare.css" type="text/css" />
+                <link rel="stylesheet" href="../../../zzstatic/docs.css" type="text/css" />
+                <link rel="stylesheet" href="../../../zzstatic/docs.bscc.css" type="text/css" />
+                <link rel="stylesheet" href="../../../zzstatic/changelog.css" type="text/css" />
+                <link rel="stylesheet" href="../../../zzstatic/sphinx_paramlinks.css" type="text/css" />
+            <!-- end iterate through site-imported + sphinx environment css_files -->
+        
+
+        
+
+    
+
+    <!-- begin layout.mako headers -->
+
+    <link rel="index" title="Index" href="../../../genindex/" />
+    <link rel="search" title="Search" href="../../../search/" />
+        <link rel="copyright" title="Copyright" href="../../../copyright/" />
+    <link rel="top" title="ColorPage 1.3 Documentation" href="../../../" />
+        <link rel="up" title="Bscc🄳🄸🄲🅃" href="../" />
+        <link rel="next" title="SQLAlchemy ORM" href="../../../orm/" />
+        <link rel="prev" title="B,b" href="../b/" />
+    <!-- end layout.mako headers -->
+
+
+    </head>
+    <body>
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="docs-container">
+
+
+
+
+
+<div id="docs-top-navigation-container" class="body-background">
+<div id="docs-header">
+    <div id="docs-version-header">
+        Release: <span class="version-num">1.3.10</span>
+
+
+        | Release Date: Jan 21, 2020
+
+    </div>
+
+    <h1>ColorPage 1.3 Documentation</h1>
+
+</div>
+</div>
+
+<div id="docs-body-container">
+
+    <div id="fixed-sidebar" class="withsidebar">
+
+
+        <div id="docs-sidebar-popout">
+            <h3><a href="../../../">ColorPage 1.3 Documentation</a></h3>
+            <p id="sidebar-topnav">
+                <a href="../../../contents/">Contents</a> |
+                <a href="../../../genindex/">Index</a>
+            </p>
+
+            <div id="sidebar-search">
+                <form class="search" action="../../../search/" method="get">
+                  <label>
+                  Search terms:
+                  <input type="text" placeholder="search..." name="q" size="12" />
+                  </label>
+                  <input type="hidden" name="check_keywords" value="yes" />
+                  <input type="hidden" name="area" value="default" />
+                </form>
+            </div>
+
+        </div>
+
+        <div id="docs-sidebar">
+
+        <div id="sidebar-banner">
+            
+        </div>
+
+        <div id="docs-sidebar-inner">
+
+        
+        <h3>
+            <a href="../" title="Bscc🄳🄸🄲🅃">Bscc🄳🄸🄲🅃</a>
+        </h3>
+
+        <ul>
+<li><span class="link-container"><a class="reference external" href="../contents/">Contents</a></span></li>
+<li><span class="link-container"><a class="reference external" href="../vii.guide/">Guide to the dictionary</a></span></li>
+<li><span class="link-container"><a class="reference external" href="../x.quiz/">Dictionary Quiz</a></span></li>
+<li><span class="link-container"><a class="reference external" href="../xii.phonetic.symbols/">ipa/x-sampa</a></span></li>
+<li><span class="link-container"><a class="reference external" href="../a/">A,a</a></span></li>
+<li><span class="link-container"><a class="reference external" href="../b/">B,b</a></span></li>
+<li class="selected"><span class="link-container"><strong>C,c</strong><a class="paramlink headerlink reference internal" href="#">¶</a></span></li>
+</ul>
+
+
+
+        </div>
+
+        </div>
+
+    </div>
+
+    
+
+    <div id="docs-body" class="withsidebar" >
+        
+<div class="section" id="c-c">
+<h1>C,c<a class="headerlink" href="#c-c" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-bscc+dict notranslate"><div class="highlight"><pre><span></span><span class="err">&gt;&gt;&gt; from sqlalchemy.sql import select</span>
+<span class="err">&gt;&gt;&gt; s = select([users])</span>
+<span class="err">&gt;&gt;&gt; result = conn.execute(s)</span>
+<span class="err">{opensql}SELECT users.id, users.name, users.fullname</span>
+<span class="err">FROM users</span>
+<span class="err">()</span></pre></div>
+</div>
+<div class="highlight-bscc+dict notranslate"><div class="highlight"><pre><span></span><span class="err">{sql}&gt;&gt;&gt; result = conn.execute(s)</span>
+<span class="err">SELECT people.people_id, people.age, people.name</span>
+<span class="err">FROM people JOIN LATERAL (SELECT books.book_id AS book_id</span>
+<span class="err">FROM books WHERE books.owner_id = people.people_id)</span>
+<span class="err">AS book_subq ON true</span>
+<span class="err">{stop}&gt;&gt;&gt; row = result.fetchone()</span>
+<span class="err">&gt;&gt;&gt; print(&quot;name:&quot;, row[&#39;name&#39;], &quot;; fullname:&quot;, row[&#39;fullname&#39;])</span>
+<span class="err">name: jack ; fullname: Jack Jones</span></pre></div>
+</div>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">users</span><span class="p">.</span><span class="n">id</span><span class="p">,</span> <span class="n">users</span><span class="p">.</span><span class="n">name</span><span class="p">,</span> <span class="n">users</span><span class="p">.</span><span class="n">fullname</span>
+<span class="k">FROM</span> <span class="n">users</span>
+
+<span class="k">SELECT</span> <span class="n">people</span><span class="p">.</span><span class="n">people_id</span><span class="p">,</span> <span class="n">people</span><span class="p">.</span><span class="n">age</span><span class="p">,</span> <span class="n">people</span><span class="p">.</span><span class="n">name</span>
+<span class="k">FROM</span> <span class="n">people</span> <span class="k">JOIN</span> <span class="k">LATERAL</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">books</span><span class="p">.</span><span class="n">book_id</span> <span class="k">AS</span> <span class="n">book_id</span>
+<span class="k">FROM</span> <span class="n">books</span> <span class="k">WHERE</span> <span class="n">books</span><span class="p">.</span><span class="n">owner_id</span> <span class="o">=</span> <span class="n">people</span><span class="p">.</span><span class="n">people_id</span><span class="p">)</span>
+<span class="k">AS</span> <span class="n">book_subq</span> <span class="k">ON</span> <span class="k">true</span></pre></div>
+</div>
+<div class="highlight-bscc+dict notranslate"><div class="highlight"><pre><span></span><span class="err">SELECT node.id AS node_id,</span>
+<span class="err">        node.parent_id AS node_parent_id,</span>
+<span class="err">        node.data AS node_data</span>
+<span class="err">FROM node JOIN node AS node_1</span>
+<span class="err">    ON node.parent_id = node_1.id</span>
+<span class="err">WHERE node.data = ?</span>
+<span class="err">    AND node_1.data = ?</span>
+<span class="err">from sqlalchemy.orm import aliased</span></pre></div>
+</div>
+<div class="highlight-bscc+dict notranslate"><div class="highlight"><pre><span></span><span class="err">nodealias = aliased(Node)</span>
+<span class="err">{sql}session.query(Node).filter(Node.data==&#39;subchild1&#39;).\</span>
+<span class="err">                join(nodealias, Node.parent).\</span>
+<span class="err">                filter(nodealias.data==&quot;child2&quot;).\</span>
+<span class="err">                all()</span>
+<span class="err">SELECT node.id AS node_id,</span>
+<span class="err">        node.parent_id AS node_parent_id,</span>
+<span class="err">        node.data AS node_data</span>
+<span class="err">FROM node JOIN node AS node_1</span>
+<span class="err">    ON node.parent_id = node_1.id</span>
+<span class="err">WHERE node.data = ?</span>
+<span class="err">    AND node_1.data = ?</span>
+
+
+
+<span class="err">[&#39;subchild1&#39;, &#39;child2&#39;]</span>
+
+<span class="err">* :sub:`subscript`</span>
+
+<span class="err">cross :sup:`1` </span><span class="kd">/krɔs/</span><span class="err"> </span><span class="gs">noun</span><span class="err"> (plural crosses)</span>
+
+<span class="err">1 a mark like x or +:</span>
+<span class="err">    The cross on the map shows where I live.</span>
+<span class="err">2 something with the shape x or +:</span>
+<span class="err">  She wears a cross(=a symbol of the Christian religion) around her neck.</span>
+
+<span class="err">  {sql}session.query(Node).filter(Node.data==&#39;subchild1&#39;).\</span>
+<span class="err">  {opensql}ALTER TABLE element DROP CONSTRAINT fk_element_parent_node_id</span>
+
+<span class="err">cross2 </span><span class="kd">/krɔs/</span><span class="err"> </span><span class="gs">verb</span><span class="err"> (crosses, crossing, crossed </span><span class="kd">/krst/</span><span class="err">)</span>
+
+<span class="err">1 to go from one side of something to the other:</span>
+<span class="err">    Be careful when you cross the road.</span>
+<span class="err">2 to put one thing over another thing:</span>
+<span class="err">  She sat down and crossed her legs.</span>
+<span class="err">  cross something out# to draw a line throuth a ;word or words, for example</span>
+<span class="err">  because you have made a mistake:</span>
+<span class="err">  I crossed the word out and wrote it again.</span>
+
+
+<span class="err">cross3 </span><span class="kd">/krɔs/</span><span class="err"> </span><span class="gs">adjective</span>
+<span class="err">  angry -&gt;same meaning# annoyed:</span>
+<span class="err">  I was cross with her ;because she was late.</span>
+
+
+<span class="err">crossing </span><span class="gs">noun</span>
+<span class="err">  a place where you can cross over something, for example a road or river</span></pre></div>
+</div>
+</div>
+
+    </div>
+
+</div>
+
+<div id="docs-bottom-navigation" class="docs-navigation-links, withsidebar">
+        Previous:
+        <a href="../b/" title="previous chapter">B,b</a>
+        Next:
+        <a href="../../../orm/" title="next chapter">SQLAlchemy ORM</a>
+
+    <div id="docs-copyright">
+        &copy; <a href="../../../copyright/">Copyright</a> 2004-2020, the ColorPage authors and contributors.
+        Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.2.2.
+    </div>
+</div>
+
+</div>
+
+
+
+        
+        
+
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+          URL_ROOT:    '../../../',
+          VERSION:     '1.3.10',
+          COLLAPSE_MODINDEX: false,
+          FILE_SUFFIX: '.html'
+      };
+    </script>
+
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../zzstatic/documentation_options.js"></script>
+
+    <!-- begin iterate through sphinx environment script_files -->
+        <script type="text/javascript" src="../../../zzstatic/jquery.js"></script>
+        <script type="text/javascript" src="../../../zzstatic/underscore.js"></script>
+        <script type="text/javascript" src="../../../zzstatic/doctools.js"></script>
+        <script type="text/javascript" src="../../../zzstatic/language_data.js"></script>
+    <!-- end iterate through sphinx environment script_files -->
+
+    <script type="text/javascript" src="../../../zzstatic/detectmobile.js"></script>
+    <script type="text/javascript" src="../../../zzstatic/init.js"></script>
+
+
+    </body>
+</html>
+
+

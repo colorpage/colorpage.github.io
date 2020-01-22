@@ -1,0 +1,276 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        
+        <title>
+            
+    
+    Schema Definition Language
+ &mdash;
+    ColorPage 1.3 Documentation
+
+        </title>
+
+        
+            <!-- begin iterate through site-imported + sphinx environment css_files -->
+                <link rel="stylesheet" href="../../zzstatic/pygments.css" type="text/css" />
+                <link rel="stylesheet" href="../../zzstatic/docs.bscc.bare.css" type="text/css" />
+                <link rel="stylesheet" href="../../zzstatic/docs.css" type="text/css" />
+                <link rel="stylesheet" href="../../zzstatic/docs.bscc.css" type="text/css" />
+                <link rel="stylesheet" href="../../zzstatic/changelog.css" type="text/css" />
+                <link rel="stylesheet" href="../../zzstatic/sphinx_paramlinks.css" type="text/css" />
+            <!-- end iterate through site-imported + sphinx environment css_files -->
+        
+
+        
+
+    
+
+    <!-- begin layout.mako headers -->
+
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" />
+        <link rel="copyright" title="Copyright" href="../../copyright/" />
+    <link rel="top" title="ColorPage 1.3 Documentation" href="../../" />
+        <link rel="up" title="SQLAlchemy Core" href="../" />
+        <link rel="next" title="Describing Databases with MetaData" href="../metadata/" />
+        <link rel="prev" title="Visitor and Traversal Utilities" href="../visitors/" />
+    <!-- end layout.mako headers -->
+
+
+    </head>
+    <body>
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="docs-container">
+
+
+
+
+
+<div id="docs-top-navigation-container" class="body-background">
+<div id="docs-header">
+    <div id="docs-version-header">
+        Release: <span class="version-num">1.3.10</span>
+
+
+        | Release Date: Jan 21, 2020
+
+    </div>
+
+    <h1>ColorPage 1.3 Documentation</h1>
+
+</div>
+</div>
+
+<div id="docs-body-container">
+
+    <div id="fixed-sidebar" class="withsidebar">
+
+
+        <div id="docs-sidebar-popout">
+            <h3><a href="../../">ColorPage 1.3 Documentation</a></h3>
+            <p id="sidebar-topnav">
+                <a href="../../contents/">Contents</a> |
+                <a href="../../genindex/">Index</a>
+            </p>
+
+            <div id="sidebar-search">
+                <form class="search" action="../../search/" method="get">
+                  <label>
+                  Search terms:
+                  <input type="text" placeholder="search..." name="q" size="12" />
+                  </label>
+                  <input type="hidden" name="check_keywords" value="yes" />
+                  <input type="hidden" name="area" value="default" />
+                </form>
+            </div>
+
+        </div>
+
+        <div id="docs-sidebar">
+
+        <div id="sidebar-banner">
+            
+        </div>
+
+        <div id="docs-sidebar-inner">
+
+        
+        <h3>
+            <a href="../" title="SQLAlchemy Core">SQLAlchemy Core</a>
+        </h3>
+
+        <ul>
+<li><span class="link-container"><a class="reference external" href="../tutorial/">SQL Expression Language Tutorial</a></span></li>
+<li><span class="link-container"><a class="reference external" href="../expression_api/">SQL Statements and Expressions API</a></span></li>
+<li class="selected"><span class="link-container"><strong>Schema Definition Language</strong><a class="paramlink headerlink reference internal" href="#">¶</a></span><ul>
+<li><span class="link-container"><a class="reference external" href="../metadata/">Describing Databases with MetaData</a></span></li>
+<li><span class="link-container"><a class="reference external" href="../reflection/">Reflecting Database Objects</a></span></li>
+<li><span class="link-container"><a class="reference external" href="../defaults/">Column INSERT/UPDATE Defaults</a></span></li>
+<li><span class="link-container"><a class="reference external" href="../constraints/">Defining Constraints and Indexes</a></span></li>
+<li><span class="link-container"><a class="reference external" href="../ddl/">Customizing DDL</a></span></li>
+</ul>
+</li>
+<li><span class="link-container"><a class="reference external" href="../types/">Column and Data Types</a></span></li>
+<li><span class="link-container"><a class="reference external" href="../engines_connections/">Engine and Connection Use</a></span></li>
+<li><span class="link-container"><a class="reference external" href="../api_basics/">Core API Basics</a></span></li>
+</ul>
+
+
+
+        </div>
+
+        </div>
+
+    </div>
+
+    
+
+    <div id="docs-body" class="withsidebar" >
+        
+<div class="section" id="module-sqlalchemy.schema">
+<span id="schema-definition-language"></span><span id="schema-toplevel"></span><h1>Schema Definition Language<a class="headerlink" href="#module-sqlalchemy.schema" title="Permalink to this headline">¶</a></h1>
+<p>This section references SQLAlchemy <strong>schema metadata</strong>, a comprehensive system of describing and inspecting
+database schemas.</p>
+<p>The core of SQLAlchemy’s query and object mapping operations are supported by
+<em>database metadata</em>, which is comprised of Python objects that describe tables
+and other schema-level objects. These objects are at the core of three major
+types of operations - issuing CREATE and DROP statements (known as <em>DDL</em>),
+constructing SQL queries, and expressing information about structures that
+already exist within the database.</p>
+<p>Database metadata can be expressed by explicitly naming the various components
+and their properties, using constructs such as
+<a class="reference internal" href="../metadata/#sqlalchemy.schema.Table" title="sqlalchemy.schema.Table"><code class="xref py py-class docutils literal notranslate"><span class="pre">Table</span></code></a>, <a class="reference internal" href="../metadata/#sqlalchemy.schema.Column" title="sqlalchemy.schema.Column"><code class="xref py py-class docutils literal notranslate"><span class="pre">Column</span></code></a>,
+<a class="reference internal" href="../constraints/#sqlalchemy.schema.ForeignKey" title="sqlalchemy.schema.ForeignKey"><code class="xref py py-class docutils literal notranslate"><span class="pre">ForeignKey</span></code></a> and
+<a class="reference internal" href="../defaults/#sqlalchemy.schema.Sequence" title="sqlalchemy.schema.Sequence"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code></a>, all of which are imported from the
+<code class="docutils literal notranslate"><span class="pre">sqlalchemy.schema</span></code> package. It can also be generated by SQLAlchemy using a
+process called <em>reflection</em>, which means you start with a single object such
+as <a class="reference internal" href="../metadata/#sqlalchemy.schema.Table" title="sqlalchemy.schema.Table"><code class="xref py py-class docutils literal notranslate"><span class="pre">Table</span></code></a>, assign it a name, and then instruct
+SQLAlchemy to load all the additional information related to that name from a
+particular engine source.</p>
+<p>A key feature of SQLAlchemy’s database metadata constructs is that they are
+designed to be used in a <em>declarative</em> style which closely resembles that of
+real DDL. They are therefore most intuitive to those who have some background
+in creating real schema generation scripts.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../metadata/">Describing Databases with MetaData</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../metadata/#accessing-tables-and-columns">Accessing Tables and Columns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metadata/#creating-and-dropping-database-tables">Creating and Dropping Database Tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metadata/#altering-schemas-through-migrations">Altering Schemas through Migrations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metadata/#specifying-the-schema-name">Specifying the Schema Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metadata/#backend-specific-options">Backend-Specific Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metadata/#column-table-metadata-api">Column, Table, MetaData API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../reflection/">Reflecting Database Objects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../reflection/#overriding-reflected-columns">Overriding Reflected Columns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reflection/#reflecting-views">Reflecting Views</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reflection/#reflecting-all-tables-at-once">Reflecting All Tables at Once</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reflection/#fine-grained-reflection-with-inspector">Fine Grained Reflection with Inspector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reflection/#limitations-of-reflection">Limitations of Reflection</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../defaults/">Column INSERT/UPDATE Defaults</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../defaults/#scalar-defaults">Scalar Defaults</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../defaults/#python-executed-functions">Python-Executed Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../defaults/#client-invoked-sql-expressions">Client-Invoked SQL Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../defaults/#server-invoked-ddl-explicit-default-expressions">Server-invoked DDL-Explicit Default Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../defaults/#marking-implicitly-generated-values-timestamps-and-triggered-columns">Marking Implicitly Generated Values, timestamps, and Triggered Columns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../defaults/#defining-sequences">Defining Sequences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../defaults/#default-objects-api">Default Objects API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../constraints/">Defining Constraints and Indexes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../constraints/#defining-foreign-keys">Defining Foreign Keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../constraints/#unique-constraint">UNIQUE Constraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../constraints/#check-constraint">CHECK Constraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../constraints/#primary-key-constraint">PRIMARY KEY Constraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../constraints/#setting-up-constraints-when-using-the-declarative-orm-extension">Setting up Constraints when using the Declarative ORM Extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../constraints/#configuring-constraint-naming-conventions">Configuring Constraint Naming Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../constraints/#constraints-api">Constraints API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../constraints/#indexes">Indexes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../constraints/#index-api">Index API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../ddl/">Customizing DDL</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ddl/#custom-ddl">Custom DDL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ddl/#controlling-ddl-sequences">Controlling DDL Sequences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ddl/#using-the-built-in-ddlelement-classes">Using the built-in DDLElement Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ddl/#ddl-expression-constructs-api">DDL Expression Constructs API</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+    </div>
+
+</div>
+
+<div id="docs-bottom-navigation" class="docs-navigation-links, withsidebar">
+        Previous:
+        <a href="../visitors/" title="previous chapter">Visitor and Traversal Utilities</a>
+        Next:
+        <a href="../metadata/" title="next chapter">Describing Databases with MetaData</a>
+
+    <div id="docs-copyright">
+        &copy; <a href="../../copyright/">Copyright</a> 2004-2020, the ColorPage authors and contributors.
+        Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.2.2.
+    </div>
+</div>
+
+</div>
+
+
+
+        
+        
+
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+          URL_ROOT:    '../../',
+          VERSION:     '1.3.10',
+          COLLAPSE_MODINDEX: false,
+          FILE_SUFFIX: '.html'
+      };
+    </script>
+
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../zzstatic/documentation_options.js"></script>
+
+    <!-- begin iterate through sphinx environment script_files -->
+        <script type="text/javascript" src="../../zzstatic/jquery.js"></script>
+        <script type="text/javascript" src="../../zzstatic/underscore.js"></script>
+        <script type="text/javascript" src="../../zzstatic/doctools.js"></script>
+        <script type="text/javascript" src="../../zzstatic/language_data.js"></script>
+    <!-- end iterate through sphinx environment script_files -->
+
+    <script type="text/javascript" src="../../zzstatic/detectmobile.js"></script>
+    <script type="text/javascript" src="../../zzstatic/init.js"></script>
+
+
+    </body>
+</html>
+
+

@@ -1,0 +1,50 @@
+/* ref file:///zytmp/gitsrc/bscc/bsccWiki/.doc.sqlalchemy.output/dirhtml/zzstatic/docs.bscc.css */
+
+.bscc_explain_frame {
+  font-weight: normal;
+  font-family: helvetica, arial, sans-serif;
+  font-size: 0.9em;
+  /* text-transform: uppercase; */
+  color: #000099;
+  font-style: italic;
+  background-color: #d0d0ff;
+  border: 1px dashed;
+  width: 550px;
+  padding: 1px 2px 1px 2px;
+  margin: 0px 10px 0px 15px;
+  /* float: right; */
+  line-height: 1.2em;
+}
+
+.bscc_link {
+  font-weight: normal;
+  font-family: helvetica, arial, sans-serif;
+  font-size: 0.9em;
+  /* text-transform: uppercase; */
+  text-transform: capitalize;
+  color: #c0c0c0;
+  /* font-style: italic; */
+  background-color: #0000c0;
+  border: 1px solid #0000c0;
+  /* width: 550px; */
+  padding: 1px 2px 1px 2px;
+  margin: 0px 10px 0px 15px;
+  /* float: right; */
+  line-height: 1.5em;
+}
+a.bscc_link, .bscc_link {
+  text-decoration: none;
+  padding: 1px 2px;
+}
+a.bscc_link:hover {
+  text-decoration: none;
+  color: #fff;
+  border: 1px solid #ff0000;
+  background-color: #0000ff;
+}
+
+a.changeset-link {
+  font-size: 0.8em;
+  padding: 0 4px 0 4px;
+  text-decoration: none;
+}

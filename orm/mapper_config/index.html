@@ -1,0 +1,247 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        
+        <title>
+            
+    
+    Mapper Configuration
+ &mdash;
+    ColorPage 1.3 Documentation
+
+        </title>
+
+        
+            <!-- begin iterate through site-imported + sphinx environment css_files -->
+                <link rel="stylesheet" href="../../zzstatic/pygments.css" type="text/css" />
+                <link rel="stylesheet" href="../../zzstatic/docs.bscc.bare.css" type="text/css" />
+                <link rel="stylesheet" href="../../zzstatic/docs.css" type="text/css" />
+                <link rel="stylesheet" href="../../zzstatic/docs.bscc.css" type="text/css" />
+                <link rel="stylesheet" href="../../zzstatic/changelog.css" type="text/css" />
+                <link rel="stylesheet" href="../../zzstatic/sphinx_paramlinks.css" type="text/css" />
+            <!-- end iterate through site-imported + sphinx environment css_files -->
+        
+
+        
+
+    
+
+    <!-- begin layout.mako headers -->
+
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" />
+        <link rel="copyright" title="Copyright" href="../../copyright/" />
+    <link rel="top" title="ColorPage 1.3 Documentation" href="../../" />
+        <link rel="up" title="SQLAlchemy ORM" href="../" />
+        <link rel="next" title="Types of Mappings" href="../mapping_styles/" />
+        <link rel="prev" title="Object Relational Tutorial" href="../tutorial/" />
+    <!-- end layout.mako headers -->
+
+
+    </head>
+    <body>
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="docs-container">
+
+
+
+
+
+<div id="docs-top-navigation-container" class="body-background">
+<div id="docs-header">
+    <div id="docs-version-header">
+        Release: <span class="version-num">1.3.10</span>
+
+
+        | Release Date: Jan 21, 2020
+
+    </div>
+
+    <h1>ColorPage 1.3 Documentation</h1>
+
+</div>
+</div>
+
+<div id="docs-body-container">
+
+    <div id="fixed-sidebar" class="withsidebar">
+
+
+        <div id="docs-sidebar-popout">
+            <h3><a href="../../">ColorPage 1.3 Documentation</a></h3>
+            <p id="sidebar-topnav">
+                <a href="../../contents/">Contents</a> |
+                <a href="../../genindex/">Index</a>
+            </p>
+
+            <div id="sidebar-search">
+                <form class="search" action="../../search/" method="get">
+                  <label>
+                  Search terms:
+                  <input type="text" placeholder="search..." name="q" size="12" />
+                  </label>
+                  <input type="hidden" name="check_keywords" value="yes" />
+                  <input type="hidden" name="area" value="default" />
+                </form>
+            </div>
+
+        </div>
+
+        <div id="docs-sidebar">
+
+        <div id="sidebar-banner">
+            
+        </div>
+
+        <div id="docs-sidebar-inner">
+
+        
+        <h3>
+            <a href="../" title="SQLAlchemy ORM">SQLAlchemy ORM</a>
+        </h3>
+
+        <ul>
+<li><span class="link-container"><a class="reference external" href="../tutorial/">Object Relational Tutorial</a></span></li>
+<li class="selected"><span class="link-container"><strong>Mapper Configuration</strong><a class="paramlink headerlink reference internal" href="#">¶</a></span><ul>
+<li><span class="link-container"><a class="reference external" href="../mapping_styles/">Types of Mappings</a></span></li>
+<li><span class="link-container"><a class="reference external" href="../scalar_mapping/">Mapping Columns and Expressions</a></span></li>
+<li><span class="link-container"><a class="reference external" href="../inheritance/">Mapping Class Inheritance Hierarchies</a></span></li>
+<li><span class="link-container"><a class="reference external" href="../nonstandard_mappings/">Non-Traditional Mappings</a></span></li>
+<li><span class="link-container"><a class="reference external" href="../versioning/">Configuring a Version Counter</a></span></li>
+<li><span class="link-container"><a class="reference external" href="../mapping_api/">Class Mapping API</a></span></li>
+</ul>
+</li>
+<li><span class="link-container"><a class="reference external" href="../relationships/">Relationship Configuration</a></span></li>
+<li><span class="link-container"><a class="reference external" href="../loading_objects/">Loading Objects</a></span></li>
+<li><span class="link-container"><a class="reference external" href="../session/">Using the Session</a></span></li>
+<li><span class="link-container"><a class="reference external" href="../extending/">Events and Internals</a></span></li>
+<li><span class="link-container"><a class="reference external" href="../extensions/">ORM Extensions</a></span></li>
+<li><span class="link-container"><a class="reference external" href="../examples/">ORM Examples</a></span></li>
+</ul>
+
+
+
+        </div>
+
+        </div>
+
+    </div>
+
+    
+
+    <div id="docs-body" class="withsidebar" >
+        
+<div class="section" id="mapper-configuration">
+<span id="mapper-config-toplevel"></span><h1>Mapper Configuration<a class="headerlink" href="#mapper-configuration" title="Permalink to this headline">¶</a></h1>
+<p>This section describes a variety of configurational patterns that are usable
+with mappers. It assumes you’ve worked through <a class="reference internal" href="../tutorial/#"><span class="std std-ref">Object Relational Tutorial</span></a> and
+know how to construct and use rudimentary mappers and relationships.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../mapping_styles/">Types of Mappings</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../mapping_styles/#declarative-mapping">Declarative Mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mapping_styles/#classical-mappings">Classical Mappings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mapping_styles/#runtime-introspection-of-mappings-objects">Runtime Introspection of Mappings, Objects</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../scalar_mapping/">Mapping Columns and Expressions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../mapping_columns/">Mapping Table Columns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mapped_sql_expr/">SQL Expressions as Mapped Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mapped_attributes/">Changing Attribute Behavior</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../composites/">Composite Column Types</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../inheritance/">Mapping Class Inheritance Hierarchies</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../inheritance/#joined-table-inheritance">Joined Table Inheritance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../inheritance/#single-table-inheritance">Single Table Inheritance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../inheritance/#concrete-table-inheritance">Concrete Table Inheritance</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../nonstandard_mappings/">Non-Traditional Mappings</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../nonstandard_mappings/#mapping-a-class-against-multiple-tables">Mapping a Class against Multiple Tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nonstandard_mappings/#mapping-a-class-against-arbitrary-selects">Mapping a Class against Arbitrary Selects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nonstandard_mappings/#multiple-mappers-for-one-class">Multiple Mappers for One Class</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../versioning/">Configuring a Version Counter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../versioning/#simple-version-counting">Simple Version Counting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../versioning/#custom-version-counters-types">Custom Version Counters / Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../versioning/#server-side-version-counters">Server Side Version Counters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../versioning/#programmatic-or-conditional-version-counters">Programmatic or Conditional Version Counters</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../mapping_api/">Class Mapping API</a></li>
+</ul>
+</div>
+</div>
+
+    </div>
+
+</div>
+
+<div id="docs-bottom-navigation" class="docs-navigation-links, withsidebar">
+        Previous:
+        <a href="../tutorial/" title="previous chapter">Object Relational Tutorial</a>
+        Next:
+        <a href="../mapping_styles/" title="next chapter">Types of Mappings</a>
+
+    <div id="docs-copyright">
+        &copy; <a href="../../copyright/">Copyright</a> 2004-2020, the ColorPage authors and contributors.
+        Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.2.2.
+    </div>
+</div>
+
+</div>
+
+
+
+        
+        
+
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+          URL_ROOT:    '../../',
+          VERSION:     '1.3.10',
+          COLLAPSE_MODINDEX: false,
+          FILE_SUFFIX: '.html'
+      };
+    </script>
+
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../zzstatic/documentation_options.js"></script>
+
+    <!-- begin iterate through sphinx environment script_files -->
+        <script type="text/javascript" src="../../zzstatic/jquery.js"></script>
+        <script type="text/javascript" src="../../zzstatic/underscore.js"></script>
+        <script type="text/javascript" src="../../zzstatic/doctools.js"></script>
+        <script type="text/javascript" src="../../zzstatic/language_data.js"></script>
+    <!-- end iterate through sphinx environment script_files -->
+
+    <script type="text/javascript" src="../../zzstatic/detectmobile.js"></script>
+    <script type="text/javascript" src="../../zzstatic/init.js"></script>
+
+
+    </body>
+</html>
+
+
